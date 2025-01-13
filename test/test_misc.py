@@ -336,9 +336,9 @@ async def test_already_paused_client_during_wait_for_servers_shutdown(bouncer):
         # Still in the same transaction, so this should work
         cur1.execute("SELECT 1")
         # New transaction so this should fail
-      #  with bouncer.log_contains(r"closing because: server shutting down"):
-       #     with pytest.raises(psycopg.OperationalError):
-        #        await task
+        with bouncer.log_contains(r"closing because: server shutting down"):
+            with pytest.raises(psycopg.OperationalError):
+                await task
 
 
 def test_resume_during_shutdown(bouncer):
