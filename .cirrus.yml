@@ -9,14 +9,6 @@ task:
   matrix:
     # - container:
     #     image: ubuntu:20.04
-    - container:
-        image: ubuntu:22.04
-      env:
-        configure_args: '--with-cares --with-pam'
-    - container:
-        image: ubuntu:22.04
-      env:
-        configure_args: '--without-openssl'
     # - container:
     #     image: ubuntu:20.04
     #   env:
